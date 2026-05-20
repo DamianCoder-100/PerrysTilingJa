@@ -1,0 +1,785 @@
+@font-face {
+  font-family: 'MyFontLogo';
+  src: url('fonts/Bonheur_Royale/BonheurRoyale-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MyFont';
+  src: url('fonts/FontName-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MyFont';
+  src: url('fonts/FontName-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'MyFont';
+  src: url('fonts/FontName-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Remove Bootstrap's default border and background */
+.navbar-toggler {
+  border: none;
+  padding: 0;
+  width: 30px;
+  height: 24px;
+  position: relative;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none; /* removes blue outline on click */
+}
+
+/* Create 3 custom lines */
+.navbar-toggler-icon {
+  background-image: none !important; /* kill Bootstrap's SVG */
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  display: block;
+  position: relative;
+  transition: 0.3s ease;
+  border-radius: 2px;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+.navbar-toggler-icon::before { top: -9px; }
+.navbar-toggler-icon::after { top: 9px; }
+
+/* When menu is open - turn into red X */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  background: transparent; /* middle line disappears */
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+  background: #e63946; /* red */
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
+  background: #e63946; /* red */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* NAV LINKS */
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  color: #8c8c8c;
+  padding: 5px 0;
+  display: inline-block;
+  /* important */
+}
+
+
+.logo {
+  font-family: 'MyFontLogo';
+  font-size: 4rem;
+  /* font-weight: bold; */
+  color: #ecd2a3;
+  text-decoration: none;
+
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #edc900;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+/* Hover + active */
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 80%;
+}
+
+
+/* HOME SECTION */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out, transform 2.5s ease;
+}
+
+/* Desktop first - show desktop button by default */
+.mobile-only {
+  display: none;
+}
+
+.desk-top-only {
+  /* watch the spelling: desk-top vs desktop */
+  display: none;
+}
+
+/* Text */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2.5rem;
+  text-align: center;
+  z-index: 2;
+}
+
+/* Shadow / light sweep */
+.hero-overlay {
+  position: absolute;
+  width: 250%;
+  height: 100%;
+  top: 0;
+  left: -150%;
+  z-index: 1;
+  background: linear-gradient(120deg,
+      rgb(0, 0, 0) 0%,
+      rgb(0, 0, 0) 25%,
+      rgba(255, 255, 255, 0.376) 45%,
+      rgba(255, 255, 255, 0) 50%,
+      /* 🔥 brightest point */
+      rgba(255, 255, 255, 0.399) 55%,
+      rgb(0, 0, 0) 75%,
+      rgb(0, 0, 0) 100%);
+
+  animation: flashlightSweep 12s linear infinite;
+}
+
+@keyframes flashlightSweep {
+  0% {
+    left: -150%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+.card-img-top {
+  height: 250px;
+  object-fit: cover;
+}
+
+.card-img-bottom {
+  width: 100%;
+  height: 278px;
+}
+
+
+.card {
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+
+
+/* ABOUT SECTION */
+.why-choose-us {
+  position: relative;
+  background-image: url("pictures/close-up-marble-textured-tiles.jpg");
+  background-repeat: repeat;
+  background-size: 500px;
+  /* adjust based on your tile */
+  background-position: center;
+  padding: 80px 0;
+}
+
+.why-choose-us::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.517);
+  /* dark overlay */
+}
+
+.why-choose-us .container {
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
+.why-choose-us h5 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.why-choose-us p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.why-choose-us .col-md-3 {
+  transition: transform 0.3s ease;
+}
+
+.why-choose-us .col-md-3:hover {
+  transform: translateY(-5px);
+}
+
+
+/* SERVICE SECTION */
+
+.bathroom-tiling1 {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+.process-section {
+  position: relative;
+  background-image: url("pictures/architectural-blueprints.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+/* Overlay for readability */
+.process-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 50, 0.531);
+  /* deep blueprint blue */
+}
+
+/* Keep content above overlay */
+.process-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.process-section h5 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.process-section p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+
+.process-section .col-md-3 {
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.process-section .col-md-3:last-child {
+  border-right: none;
+}
+
+
+
+/* Gallery Section */
+
+.gallery-img {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+  height: 350px;
+  object-fit: cover;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+}
+
+
+.modal-body {
+  padding: 20px;
+}
+
+
+#lightboxImage {
+  transition: transform 0.3s ease;
+}
+
+#lightboxImage:hover {
+  transform: scale(1.02);
+}
+
+
+/* Fix modal width */
+.modal-dialog {
+  max-width: 800px;
+  /* you can adjust: 700px, 900px, etc */
+  /* max-height: 400px; */
+}
+
+/* Fix modal height and center content */
+.modal-body {
+  height: 500px;
+  /* fixed height */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.modal-img {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.caption {
+  margin-top: 12px;
+  text-align: center;
+  max-width: 100%;
+}
+
+/* Make image fit inside without breaking */
+#lightboxImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+
+
+.kitchen-1 {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+.stairs {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+.tile-stairs2 {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+.tile-design {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+.repair-floor {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+.kitchen6 {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+.bathroom6 {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.floor-tiling {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+
+/* CONTACT SECTION */
+.hide-on-contact {
+  visibility: hidden;
+}
+
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+}
+
+/* Overlay background */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  opacity: 1;
+  transition: opacity 0.15s linear;
+}
+
+.popup.hidden {
+  display: none;
+  opacity: 0;
+}
+
+/* The actual popup box */
+.popup-content {
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 500px;
+  margin: 1rem;
+  padding: 0;
+  transform: scale(1);
+  transition: transform 0.15s ease-out;
+  border: 1px solid rgba(0, 0, 0, 0.175);
+}
+
+/* Header area */
+.popup-content h4 {
+  color: #198754;
+  /* Bootstrap success green */
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 1.5rem 1.5rem 0.5rem;
+  margin: 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Body text */
+.popup-content p {
+  padding: 1rem 1.5rem;
+  margin: 0;
+  color: #212529;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Footer with button */
+.popup-content button {
+  margin: 0 1.5rem 1.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.375rem;
+  border: none;
+  background-color: #198754;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.popup-content button:hover {
+  background-color: #157347;
+}
+
+.popup-content button:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+}
+
+/* Success icon - optional but nice */
+.popup-content h4::before {
+  content: "✓";
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: #198754;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 32px;
+  margin-right: 0.75rem;
+  font-size: 1.25rem;
+}
+
+/* Mobile tweaks */
+@media (max-width: 576px) {
+  .popup-content {
+    margin: 0.5rem;
+  }
+
+  .popup-content h4 {
+    font-size: 1.25rem;
+  }
+}
+
+/* SOCIAL MEDIA ICONS */
+.fb-logo {
+  width: 70px;
+  margin-top: 10px;
+}
+
+.gram-logo {
+  width: 70px;
+  margin-top: 10px;
+}
+
+
+.x-logo {
+  width: 70px;
+  margin-top: 10px;
+}
+
+.indeed-logo {
+  width: 70px;
+  margin-top: 10px;
+}
+
+.whatsApp-float {
+  width: 70px;
+  margin-top: 10px;
+  display: none;
+}
+
+.flex-social-media-icons {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+/* NAV LINKS */
+/* About Section with Parallax Effect */
+
+.about-parallax {
+  background-image: url('pictures/bathromm6.png');
+  min-height: 400px;
+  background-attachment: fixed;
+  /* parallax */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-parallax .content {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 10px;
+  color: white;
+}
+
+.btn-dark {
+  background-color: #c9a34e;
+  border: none;
+}
+
+.btn-dark:hover {
+  background-color: #a8832f;
+}
+
+/* FOOTER SESSION */
+footer {
+  position: relative;
+  background: url('pictures/tile-background.jpg') center/cover no-repeat;
+  overflow: hidden;
+}
+
+/* Dark Overlay For Readability */
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.577);
+}
+
+/* Keep Your Content Above The Overlay */
+footer>* {
+  position: relative;
+  z-index: 2;
+}
+
+footer p {
+  margin-bottom: 15px;
+}
+
+.flex-social-media-icons {
+  margin-top: 15px;
+  gap: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.flex-social-media-icons img {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.flex-social-media-icons img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+
+/* WHATSAPP BUTTON */
+.whatsapp-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 53px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  z-index: 99999;
+  padding: 0 10px;
+  border: 60px;
+}
+
+/* Image */
+.whatsApp-logo {
+  height: 100%;
+  width: 60px;
+  margin-top: 10px;
+  width: auto;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+
+/* Expanding panel */
+.hover-panel {
+  position: absolute;
+  right: 21px;
+  top: 5px;
+  height: 100%;
+  width: 0;
+  background: #36b30d;
+  border-radius: 15px 0 0 15px;
+  /* curve on LEFT */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: width 0.4s ease;
+  z-index: 1;
+}
+
+/* Text */
+.label {
+  color: white;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.whatsapp-btn:hover .hover-panel {
+  width: 220px;
+}
+
+.whatsapp-btn:hover .label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+
+@media (max-width: 991px) {
+  .hide-quote {
+    visibility: hidden;
+  }
+
+  .desk-top-only {
+    display: none;
+    /* hide the nav button */
+  }
+
+  .mobile-only {
+    display: inline-block;
+    /* show the hero button */
+    margin-top: 1.5rem;
+    width: 150px;
+    /* full width looks better on mobile */
+  }
+}
+
+@media (max-width: 827px) {
+  .whatsapp-btn {
+    display: none;
+  }
+
+  .whatsApp-float {
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+}
