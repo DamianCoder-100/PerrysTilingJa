@@ -51,7 +51,7 @@ app.use(
     origin: [
       'http://localhost:5500',
       'http://127.0.0.1:5500',
-      'https://DamianCoder-100.github.io'
+      'https://damiancoder-100.github.io'
     ]
   })
 );
@@ -183,7 +183,9 @@ app.post('/contact', limiter, contactValidation, async (req, res) => {
     });
   }
 });
-
+   app.use((req, res) => {
+     res.status(404).json({ success: false, message: 'Route not found' });
+   });
 // ======================
 // START SERVER
 // ======================
