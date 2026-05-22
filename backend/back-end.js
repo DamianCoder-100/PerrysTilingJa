@@ -136,21 +136,42 @@ app.post('/contact', limiter, contactValidation, async (req, res) => {
     // ======================
     // EMAIL TO OWNER
     // ======================
+    // await transporter.sendMail({
+    //   from: `"Perry's Tiling" <${emailUser}>`,
+    //   to: receiverEmail,
+    //   replyTo: email,
+    //   subject: `New Quote Request: ${service}`,
+    //   html: `
+    //     <h2>New Contact Form Submission</h2>
+    //     <p><strong>Name:</strong> ${name}</p>
+    //     <p><strong>Email:</strong> ${email}</p>
+    //     <p><strong>Phone:</strong> ${phone}</p>
+    //     <p><strong>Service:</strong> ${service}</p>
+    //     <p><strong>Message:</strong></p>
+    //     <p>${message.replace(/\n/g, '<br>')}</p>
+    //   `
+    // });
     await transporter.sendMail({
-      from: `"Perry's Tiling" <${emailUser}>`,
-      to: receiverEmail,
-      replyTo: email,
-      subject: `New Quote Request: ${service}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Service:</strong> ${service}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-      `
-    });
+  from: `"Perry's Tiling" <${emailUser}>`,
+  to: receiverEmail,
+  replyTo: email,
+  subject: `New Quote Request: ${service}`,
+  html: `
+    <div style="text-align:center; margin-bottom:20px;">
+     <img src="pictures/perrys-logo.png" alt="Perry's Tiling Logo" class="logo-image">
+    </div>
+
+    <h2>New Contact Form Submission</h2>
+    
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Phone:</strong> ${phone}</p>
+    <p><strong>Service:</strong> ${service}</p>
+    
+    <p><strong>Message:</strong></p>
+    <p>${message.replace(/\n/g, '<br>')}</p>
+  `
+});
 
     // ======================
     // CONFIRMATION EMAIL TO USER

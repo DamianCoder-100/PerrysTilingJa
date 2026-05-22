@@ -113,8 +113,16 @@ html {
   font-family: 'MyFontLogo';
   font-size: 4rem;
   /* font-weight: bold; */
-  color: #ecd2a3;
+  color: hsl(39, 66%, 78%);
   text-decoration: none;
+
+
+}
+.logo-image {
+  height: 80px;
+  width: auto;
+  margin-left: 10px;
+  margin-right: 20px;
 
 }
 
@@ -243,6 +251,7 @@ html {
   position: relative;
   z-index: 1;
   color: white;
+
 }
 
 .why-choose-us h5 {
@@ -294,6 +303,7 @@ html {
 .process-section .container {
   position: relative;
   z-index: 1;
+   
 }
 
 .process-section h5 {
