@@ -111,18 +111,18 @@ html {
 
 .logo {
   font-family: 'MyFontLogo';
-  font-size: 4rem;
-  /* font-weight: bold; */
+  font-size: 3.5rem;
   color: hsl(39, 66%, 78%);
   text-decoration: none;
 
 
 }
 .logo-image {
-  height: 80px;
+  height: 60px;
   width: auto;
   margin-left: 10px;
-  margin-right: 20px;
+  margin-right: 10px;
+  filter: drop-shadow(2px 4px 6px black);
 
 }
 
