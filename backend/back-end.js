@@ -157,9 +157,7 @@ app.post('/contact', limiter, contactValidation, async (req, res) => {
   replyTo: email,
   subject: `New Quote Request: ${service}`,
   html: `
-    <div style="text-align:center; margin-bottom:20px;">
-     <img src="pictures/perrys-logo.png" alt="Perry's Tiling Logo" class="logo-image">
-    </div>
+
 
     <h2>New Contact Form Submission</h2>
     
@@ -180,7 +178,11 @@ app.post('/contact', limiter, contactValidation, async (req, res) => {
       from: `"Perry's Tiling" <${emailUser}>`,
       to: email,
       subject: "Thanks for contacting Perry's Tiling!",
-      html: `
+      html: `   
+       <div style="text-align:center; margin-bottom:20px;">
+     <img src="pictures/perrys-logo.png" alt="Perry's Tiling Logo" class="logo-image">
+    </div>
+
         <p>Hi ${name},</p>
         <p>Thanks for reaching out about <strong>${service}</strong>.</p>
         <p>We will get back to you within 24 hours.</p>
