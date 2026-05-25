@@ -155,6 +155,21 @@ html {
   transition: background-image 1s ease-in-out, transform 2.5s ease;
 }
 
+.hero-bg-color {
+  position: relative;
+}
+
+.hero-bg-color::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+.hero-bg-color .container {
+  position: relative;
+  z-index: 2;
+}
 /* Desktop first - show desktop button by default */
 .mobile-only {
   display: none;
