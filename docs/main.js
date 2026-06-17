@@ -1,3 +1,13 @@
+const logo = document.querySelector('.logo-image');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    logo.classList.add('shrink');
+  } else {
+    logo.classList.remove('shrink');
+  }
+});
+
 // MAIN JS FOR PERRY'S WEBSITE
 // const API_URL =
 //   window.location.hostname === "localhost"
