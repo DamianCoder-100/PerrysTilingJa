@@ -1,5 +1,10 @@
 // MAIN JS FOR PERRY'S WEBSITE
+// const API_URL =
+//   window.location.hostname === "localhost"
+//     ? "http://localhost:3000"
+//     : "https://your-backend-domain.com";
 
+const API_URL = "http://localhost:3000";
 // ===== ELEMENTS =====
 const form = document.getElementById('contactForm');
 const nameInput = document.getElementById('name');
@@ -96,7 +101,7 @@ if (form) {
     submitBtn.textContent = 'Sending...';
 
     try {
-      const res = await fetch('http://localhost:3000/contact', {
+      const res = await fetch(`${API_URL}/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -112,7 +117,7 @@ if (form) {
         alert(data.message || 'Something went wrong. Try again.');
       }
     } catch (err) {
-      alert('Network error. Make sure the backend is running on port 3000.');
+      alert('Network error. Please try again.');
       console.error(err);
     } finally {
       submitBtn.disabled = false;

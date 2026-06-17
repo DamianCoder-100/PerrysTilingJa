@@ -8,6 +8,8 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const { body, validationResult } = require('express-validator');
 const nodemailer = require('nodemailer');
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
 
@@ -22,7 +24,7 @@ app.set('trust proxy', 1);
 const emailUser = process.env.SMTP_USER;
 const emailPass = process.env.SMTP_PASS;
 const receiverEmail = process.env.RECEIVER_EMAIL;
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 // ======================
 // ENV VALIDATION (fail fast)
@@ -49,8 +51,10 @@ app.use(helmet());
 app.use(
   cors({
     origin: [
-      'http://localhost:5500',
+       'http://localhost:5500',
       'http://127.0.0.1:5500',
+      'http://127.0.0.1:5501',
+      'http://localhost:5501',
       'https://damiancoder-100.github.io'
     ]
   })
@@ -79,8 +83,6 @@ const transporter = nodemailer.createTransport({
     user: emailUser,
     pass: emailPass
   },
-
-  // 🔥 TIMEOUT SETTINGS (added)
   connectionTimeout: 10000,
   greetingTimeout: 10000,
   socketTimeout: 10000
@@ -121,8 +123,9 @@ const contactValidation = [
 // CONTACT ROUTE
 // ======================
 app.post('/contact', limiter, contactValidation, async (req, res) => {
-  const errors = validationResult(req);
+  console.log('🔥 CONTACT ROUTE HIT');
 
+  const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({
       success: false,
@@ -136,40 +139,21 @@ app.post('/contact', limiter, contactValidation, async (req, res) => {
     // ======================
     // EMAIL TO OWNER
     // ======================
-    // await transporter.sendMail({
-    //   from: `"Perry's Tiling" <${emailUser}>`,
-    //   to: receiverEmail,
-    //   replyTo: email,
-    //   subject: `New Quote Request: ${service}`,
-    //   html: `
-    //     <h2>New Contact Form Submission</h2>
-    //     <p><strong>Name:</strong> ${name}</p>
-    //     <p><strong>Email:</strong> ${email}</p>
-    //     <p><strong>Phone:</strong> ${phone}</p>
-    //     <p><strong>Service:</strong> ${service}</p>
-    //     <p><strong>Message:</strong></p>
-    //     <p>${message.replace(/\n/g, '<br>')}</p>
-    //   `
-    // });
     await transporter.sendMail({
-  from: `"Perry's Tiling" <${emailUser}>`,
-  to: receiverEmail,
-  replyTo: email,
-  subject: `New Quote Request: ${service}`,
-  html: `
-
-
-    <h2>New Contact Form Submission</h2>
-    
-    <p><strong>Name:</strong> ${name}</p>
-    <p><strong>Email:</strong> ${email}</p>
-    <p><strong>Phone:</strong> ${phone}</p>
-    <p><strong>Service:</strong> ${service}</p>
-    
-    <p><strong>Message:</strong></p>
-    <p>${message.replace(/\n/g, '<br>')}</p>
-  `
-});
+      from: `"Perry's Tiling" <${emailUser}>`,
+      to: receiverEmail,
+      replyTo: email,
+      subject: `New Quote Request: ${service}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Service:</strong> ${service}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      `
+    });
 
     // ======================
     // CONFIRMATION EMAIL TO USER
@@ -178,17 +162,23 @@ app.post('/contact', limiter, contactValidation, async (req, res) => {
       from: `"Perry's Tiling" <${emailUser}>`,
       to: email,
       subject: "Thanks for contacting Perry's Tiling!",
-      html: `   
-       <div style="text-align:center; margin-bottom:20px;">
-     <img src="pictures/perrys-logo.png" alt="Perry's Tiling Logo" class="logo-image">
-    </div>
-
-        <p>Hi ${name},</p>
-        <p>Thanks for reaching out about <strong>${service}</strong>.</p>
-        <p>We will get back to you within 24 hours.</p>
-        <p>Phone: (876) 817-3377</p>
-        <br />
-        <p>- Perry's Tiling Team</p>
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+       <div style="padding: 0 0 15px 5px; margin-bottom: 25px;">
+  <img 
+    src="https://damiancoder-100.github.io/PerrysTilingJa/pictures/perry-logo2026.png"
+    width="160"
+    alt="Perry's Tiling Logo"
+    style="display: block; margin: 0;"
+  >
+</div>
+          <p>Hi ${name},</p>
+          <p>Thanks for reaching out about <strong>${service}</strong>.</p>
+          <p>We will get back to you within 24 hours.</p>
+          <p>Phone: (876) 817-3377</p>
+          <br>
+          <p>- Perry's Tiling Team</p>
+        </div>
       `
     });
 
@@ -199,19 +189,23 @@ app.post('/contact', limiter, contactValidation, async (req, res) => {
 
   } catch (err) {
     console.error('❌ Email error:', err);
-
     return res.status(500).json({
       success: false,
       message: 'Server error. Try again later.'
     });
   }
 });
-   app.use((req, res) => {
-     res.status(404).json({ success: false, message: 'Route not found' });
-   });
+
+
+app.use((req, res) => {
+  res.status(404).json({ success: false, message: 'Route not found' });
+});
+
 // ======================
 // START SERVER
 // ======================
-app.listen(port, () => {
-  console.log(`🚀 Server running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
 });
+
+

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pattern Details | Perry's Tiling</title>
+
+  <link rel="icon" href="pictures/perrys-favacon.png" type="image/jpeg">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="frontend.css">
+
+  <style>
+
+.pattern-hero {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+    .pattern-card {
+      border: none;
+      border-radius: 12px;
+    }
+
+    .info-box {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 20px;
+      height: 100%;
+    }
+
+    .multiplier-box {
+      background: #ffc107;
+      color: #000;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .section-title {
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .back-btn {
+      margin-bottom: 30px;
+    }
+
+    .cta-box {
+      background: #212529;
+      color: white;
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .cta-box h4 {
+      margin-bottom: 15px;
+    }
+
+    .cta-box .btn {
+      margin-top: 15px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- 🔹 NAVBAR -->
+  <nav class="nav-bg-color navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="logo" href="index.html">
+        <img class="logo-image" src="pictures/perry-logo2026.png" alt="Perry's Tiling Logo">
+      </a>
+
+      <!-- <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu"> -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link active" href="patterns.html">Patterns</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="hide-quote btn btn-warning ms-3">Get a Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="py-5">
+
+    <div class="container">
+
+      <a href="patterns.html"
+         class="btn btn-outline-dark back-btn">
+        ← Back to Patterns
+      </a>
+
+      <div class="card shadow-sm pattern-card">
+
+       <!-- PATTERN IMAGES -->
+<div class="row g-4 p-4 pb-0">
+
+  <div class="col-lg-6">
+    <img
+      id="patternHero"
+      src=""
+      alt=""
+      class="pattern-hero w-100">
+  </div>
+
+  <div class="col-lg-6">
+    <img
+      id="patternExample"
+      src=""
+      alt=""
+      class="pattern-hero w-100">
+  </div>
+
+</div>
+
+        <div class="card-body p-4 p-lg-5">
+
+          <h1
+            id="patternTitle"
+            class="fw-bold mb-4">
+            Loading...
+          </h1>
+
+          <div class="row g-4 mb-4">
+
+            <div class="col-md-4">
+              <div class="multiplier-box">
+                Waste Multiplier
+                <div id="patternMultiplier">
+                  --
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <div class="info-box">
+                <h4 class="section-title">
+                  Installation Notes
+                </h4>
+
+                <p id="patternDifficulty"
+                   class="mb-0">
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row g-4">
+
+            <div class="col-lg-6">
+              <div class="info-box">
+
+                <h4 class="section-title">
+                  Layout Description
+                </h4>
+
+                <p id="patternDesc"></p>
+
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="info-box">
+
+                <h4 class="section-title">
+                  Best Used For
+                </h4>
+
+                <p id="patternUsage"></p>
+
+              </div>
+            </div>
+
+          </div>
+
+          <div class="cta-box">
+
+            <h4>
+              Ready to use this pattern?
+            </h4>
+
+            <p>
+              Perry's Tiling can help you calculate tile quantities,
+              waste factors, grout requirements, and installation costs.
+            </p>
+
+            <a href="contact.html"
+               class="btn btn-warning btn-lg">
+              Request an Estimate
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+ 
+  <!-- 🔹 FOOTER -->
+  <footer class="bg-black text-white text-center py-5">
+    <p>&copy; 2026 Perry's Tiling. All rights reserved.</p>
+    <p class="mb-0">Phone: 1(876) 817-3377</p>
+    <a href="https://api.whatsapp.com/send?phone=18768173377&text=Hi%20Perrys%20Tiling%2C%20I%20need%20a%20quote"
+      target="_blank" class="whatsapp-btn">
+      <div class="hover-panel">
+        <span class="label">Chat with us</span>
+      </div>
+      <img src="pictures/whatsApp2.png" alt="whatsApp" class="whatsApp-logo" loading="lazy">
+    </a>
+    <div class="flex-social-media-icons">
+      <a class="fb-logo" href="https://www.facebook.com/share/1CorVYTHqJ/" target="_blank" rel="noopener noreferrer"
+        aria-label="Perry's Tiling on Facebook">
+        <img class="fb-logo" src="pictures/FaceBooK.png" alt="Facebook" loading="lazy">
+      </a>
+      <a class="gram-logo" href="https://x.com/WayneMille76515" target="_blank" rel="noopener noreferrer"
+        aria-label="Perry's Tiling on X">
+        <img class="x-logo" src="pictures/xx.png" alt="x" loading="lazy">
+      </a>
+      <a class="gram-logo" href="https://www.instagram.com/damianlewis494?igsh=dzc2M3lsbnRhN2Jp"
+        rel="noopener noreferrer" aria-label="Perry's Tiling on Instagram">
+        <img class="gram-logo" src="pictures/insta-gram.png" alt="Instagram" loading="lazy">
+      </a>
+      <a class="indeed-logo" href="javascript:void(0);" aria-label="Indeed profile coming soon"
+        rel="noopener noreferrer">
+        <img class="indeed-logo" src="pictures/indeed.png" alt="Indeed" loading="lazy">
+      </a>
+      <a class="whatsApp-float" aria-label="Chat with Perry's Tiling on WhatsApp"
+        href="https://api.whatsapp.com/send?phone=18768173377&text=Hi%20Perrys%20Tiling%2C%20I%20need%20a%20quote"
+        target="_blank" rel="noopener noreferrer">
+        <img class="whatsApp-float" src="pictures/whatsApppp.png" alt="whatsApp" loading="lazy">
+      </a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="js/pattern-detail.js"></script>
+
+</body>
+</html>

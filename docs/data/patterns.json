@@ -1,0 +1,67 @@
+{
+  "straight": {
+    "title": "Grid / Straight Lay Pattern",
+    "multiplierDisplay": "5% to 7%",
+    "heroImage": "pictures/patterns/straight-lay-hero.jpg",
+    "exampleImage": "pictures/",
+    "description": "The straight lay pattern is the most traditional layout style available. Tiles are arranged end-to-end parallel to the surrounding walls, establishing an unbroken linear grid structure.",
+    "bestUsedFor": "Perfect for large format floor tiles or clean, modern minimalism where you want the visual focus entirely directed toward the raw color variations and texture profile of the chosen tile itself.",
+    "difficulty": "Beginner-friendly layout alignment, but requires highly flat surface prep to avoid subtle tile lip variations."
+  },
+  "offset": {
+    "title": "Offset / Running Bond Pattern",
+    "multiplierDisplay": "10%",
+    "heroImage": "pictures/offset_frame.png",
+    "exampleImage": "pictures/offset_pic.png",
+    "description": "Commonly referred to as a brick lay setup, each horizontal row is systematically offset by a half or third-tile fraction width relative to the layer passing directly beneath it.",
+    "bestUsedFor": "An excellent layout solution for rectangular ceramic wall subways, kitchen backsplashes, and modern interlocking wood-plank floor designs.",
+    "difficulty": "Moderate alignment precision required along structural intersection corners."
+  },
+  "diagonal": {
+  "title": "Diagonal Tile Layout Pattern",
+  "multiplierDisplay": "15%",
+  "heroImage": "pictures/diagonal_frame.png",
+  "exampleImage": "pictures/diagonal_pic.png",
+  "description": "The diagonal layout rotates a traditional straight-lay grid pattern by 45 degrees relative to the room walls. This creates visual movement, breaks up long straight sightlines, and can make smaller rooms feel significantly larger and more open.",
+  "bestUsedFor": "Bathrooms, foyers, hallways, entryways, kitchens, and smaller rooms where additional visual depth and dimension are desired.",
+  "difficulty": "Intermediate to advanced installation. Requires accurate room centerline layout, numerous perimeter cuts, and careful planning to maintain balanced borders along all walls."
+},
+
+  "hex": {
+    "title": "Hexagon Tile Pattern",
+    "multiplierDisplay": "12% - 15%",
+    "heroImage": "pictures/hex_wireframe.png",
+    "exampleImage": "pictures/hex-pic.jpeg",
+    "description": "The hexagon pattern uses six-sided tiles arranged in an interlocking honeycomb layout. This geometric design creates visual movement and adds architectural interest to both floors and walls while maintaining a balanced, symmetrical appearance.",
+    "bestUsedFor": "Bathroom floors, shower walls, kitchen backsplashes, laundry rooms, accent walls, and contemporary commercial spaces. Hexagon tiles work especially well in modern and Scandinavian-inspired designs.",
+    "difficulty": "Moderate to advanced. Requires careful layout planning to maintain consistent alignment along walls, corners, and transitions. Additional cutting is often required around room perimeters and fixtures."
+  },
+
+  "herringbone": {
+    "title": "Elegant Herringbone Pattern",
+    "multiplierDisplay": "15%",
+    "isCssDiagram": true,
+    "diagramHtml": "<div style=\"width: 160px; height: 160px; border: 2px solid #333; border-radius: 6px; overflow: hidden; position: relative; background-color: #fdfdfd; background-image: linear-gradient(45deg, #333 25%, transparent 25%), linear-gradient(-45deg, #333 25%, transparent 25%), linear-gradient(135deg, #333 25%, transparent 25%), linear-gradient(-135deg, #333 25%, transparent 25%); background-size: 40px 40px; background-position: 20px 0, 20px 0, 0 0, 0 0; opacity: 0.9;\"></div>",
+    "description": "An upscale, luxurious look achieved by running rectangular tiles in alternating 45-degree angles to generate a continuous sequence of precise interlocking V-shapes across the surface landscape.",
+    "bestUsedFor": "High-impact accent feature walls, premium walk-in master shower corridors, or luxury focal point entryways.",
+    "difficulty": "Advanced skill rating. Demands high volume of intricate diagonal cuts and rigorous line alignment validation."
+  },
+  "basketweave": {
+    "title": "Basketweave Pattern",
+    "multiplierDisplay": "10% - 12%",
+    "isCssDiagram": true,
+    "diagramHtml": "<div style=\"width: 160px; height: 160px; border: 2px solid #333; border-radius: 6px; overflow: hidden; background-color: #fdfdfd; background-image: linear-gradient(90deg, transparent 48%, #333 48%, #333 52%, transparent 52%), linear-gradient(0deg, transparent 48%, #333 48%, #333 52%, transparent 52%); background-size: 40px 40px; position: relative; opacity: 0.9;\"><div style=\"position: absolute; width: 100%; height: 100%; background: repeating-linear-gradient(0deg, transparent, transparent 18px, #333 18px, #333 20px); background-size: 40px 40px;\"></div></div>",
+    "description": "Rectangular tiles are grouped into alternating horizontal and vertical pairs to create a distinct woven pattern. Excellent for classical historical accents.",
+    "bestUsedFor": "Classical home entryways, dynamic fireplace surrounds, or retro bathroom tiling projects.",
+    "difficulty": "Moderate. Requires planning your grid rows carefully to ensure the 'woven' effect stays balanced across room edges."
+  },
+  "chevron": {
+    "title": "Continuous Zig-Zag Chevron Pattern",
+    "multiplierDisplay": "15% - 20%",
+    "isCssDiagram": true,
+    "diagramHtml": "<div style=\"width: 160px; height: 160px; border: 2px solid #333; border-radius: 6px; overflow: hidden; position: relative; background-color: #fdfdfd; background-image: linear-gradient(45deg, transparent 46%, #333 46%, #333 54%, transparent 54%), linear-gradient(-45deg, transparent 46%, #333 46%, #333 54%, transparent 54%); background-size: 40px 80px; background-position: 0 0, 20px 0; opacity: 0.9;\"></div>",
+    "description": "Utilizes individual tile planks cut precisely on an angle to form a continuous, seamless zig-zag line. Creates an upscale geometric focal point on feature walls.",
+    "bestUsedFor": "Modern accent walls, luxury master baths, and contemporary commercial space flooring.",
+    "difficulty": "High difficulty rating. Every single cut must match perfectly to maintain the sharp zig-zag points down the center lines."
+  }
+}

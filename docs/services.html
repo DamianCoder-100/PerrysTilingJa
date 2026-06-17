@@ -4,15 +4,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services - Perry's Tiling</title>
+  <title>Tiling Services Spanish Town | Bathroom, Kitchen & Floor Tile Installation</title>
+  <meta name="description"
+    content="Perry's Tiling offers floor tiling, bathroom renovation, kitchen backsplash & custom tile designs in Spanish Town, Portmore & St. Catherine. Free quotes.">
+  <link rel="canonical" href="https://damiancoder-100.github.io/PerrysTilingJa/services.html">
 
-  <link rel="icon" href="pictures/perrys-favacon.png" type="image/jpeg">
+  <meta property="og:title" content="Tiling Services | Perry's Tiling Spanish Town">
+  <meta property="og:description"
+    content="Floor tiling, bathroom renovation, kitchen backsplash & repairs. Free quotes in St. Catherine.">
+  <meta property="og:image"
+    content="https://damiancoder-100.github.io/PerrysTilingJa/pictures/modern-black-bathroom.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://damiancoder-100.github.io/PerrysTilingJa/services.html">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="pictures/perrys-favicon.png" type="image/png">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="frontend.css">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "serviceType": "Tile Installation",
+ "provider": {
+   "@id": "https://damiancoder-100.github.io/PerrysTilingJa/#business"
+ },
+ "areaServed": [
+    {
+      "@type": "City",
+      "name": "Spanish Town"
+    },
+    {
+      "@type": "City", 
+      "name": "Portmore"
+    },
+    {
+      "@type": "City",
+      "name": "Old Harbour"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Clarendon"
+    },
+    {
+      "@type": "City",
+      "name": "Kingston"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "St. Andrew"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "St. Catherine"
+    }
+ ],
+ "hasOfferCatalog": {
+   "@type": "OfferCatalog",
+   "name": "Tiling Services",
+   "itemListElement": [
+     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Floor Tiling"}},
+     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Wall Tiling"}},
+     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bathroom Renovation"}},
+     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Kitchen Backsplash"}},
+     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Tile Designs"}},
+     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tile Repairs & Maintenance"}}
+   ]
+ }
+}
+</script>
 </head>
 
 <body>
@@ -21,10 +86,11 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container">
       <a class="logo" href="index.html">
-        <img class="logo-image" src="pictures/perry-logo2026.png" alt="">
+        <img class="logo-image" src="pictures/perry-logo2026.png" alt="Perry's Tiling Logo">
       </a>
 
-      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -34,6 +100,7 @@
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="patterns.html">Patterns</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
         <a href="contact.html" class="hide-quote btn btn-warning ms-3">Get a Quote</a>
@@ -46,10 +113,12 @@
     <div class="container">
       <h1 class="display-5 fw-bold">Our Services</h1>
       <p class="lead">Professional tiling solutions for every space</p>
-       <p class="mb-0">Email: perrystiling@gmail.com</p>
-      <p class="mb-0">Phone: 1(876) 817-3377</p>
+      <p class="mb-1">Email: <a href="mailto:perrystiling@gmail.com" class="text-white"
+          style="text-decoration: none;">perrystiling@gmail.com</a></p>
+      <p class="mb-3">Phone: <a href="tel:+18768173377" class="text-white" style="text-decoration: none;">1(876)
+          817-3377</a></p>
       <a href="contact.html" class="desk-top-only btn btn-warning btn-lg">Get a Quote</a>
-      <a href="contact.html" class="mobile-only btn btn-warning btn-lg">Get a Quote</a>
+      <a href="contact.html" class="mobile-only btn btn-warning btn-lg" aria-hidden="true" tabindex="-1">Get a Quote</a>
     </div>
   </section>
 
@@ -61,7 +130,8 @@
         <!-- Service 1 -->
         <div class="col-md-4 mb-4">
           <div class="card h-100">
-            <img src="pictures/neon-robot-vacuum-cleaner.jpg" class="card-img-top bathroom-tiling1" alt="Floor Tiling">
+            <img src="pictures/neon-robot-vacuum-cleaner.jpg" class="card-img-top bathroom-tiling1" loading="lazy"
+              alt="Floor Tiling">
             <div class="card-body">
               <h5>Floor Tiling</h5>
               <p>Durable and precise floor installations for homes and businesses.</p>
@@ -72,7 +142,7 @@
         <!-- Service 2 -->
         <div class="col-md-4 mb-4">
           <div class="card h-100">
-            <img src="pictures/bathromm6.png" class="card-img-top bathroom-tiling1" alt="Wall Tiling">
+            <img src="pictures/bathromm6.png" class="card-img-top bathroom-tiling1" loading="lazy" alt="Wall Tiling">
             <div class="card-body">
               <h5>Wall Tiling</h5>
               <p>Modern wall designs with clean and smooth finishes.</p>
@@ -83,8 +153,8 @@
         <!-- Service 3 -->
         <div class="col-md-4 mb-4">
           <div class="card h-100">
-            <img src="pictures/3d-rendering-modern-wood-stone-white-bathroom.jpg"
-              class="card-img-top bathroom-tiling1" alt="Bathroom Renovation">
+            <img src="pictures/3d-rendering-modern-wood-stone-white-bathroom.jpg" class="card-img-top bathroom-tiling1"
+              loading="lazy" alt="Bathroom Renovation">
             <div class="card-body">
               <h5>Bathroom Renovation</h5>
               <p>Complete bathroom transformations with quality craftsmanship.</p>
@@ -95,7 +165,8 @@
         <!-- Service 4 -->
         <div class="col-md-4 mb-4">
           <div class="card h-100">
-            <img src="pictures/kitchen6.png" class="card-img-top bathroom-tiling1" alt="Kitchen Backsplash">
+            <img src="pictures/kitchen6.png" class="card-img-top bathroom-tiling1" loading="lazy"
+              alt="Kitchen Backsplash">
             <div class="card-body">
               <h5>Kitchen Backsplash</h5>
               <p>Stylish backsplash designs to upgrade your kitchen space.</p>
@@ -106,7 +177,8 @@
         <!-- Service 5 -->
         <div class="col-md-4 mb-4">
           <div class="card h-100">
-            <img src="pictures/tile-design.png" class="card-img-top bathroom-tiling1" alt="Custom Tile Designs">
+            <img src="pictures/tile-design.png" class="card-img-top bathroom-tiling1" loading="lazy"
+              alt="Custom Tile Designs">
             <div class="card-body">
               <h5>Custom Tile Designs</h5>
               <p>Unique tile layouts tailored to your vision.</p>
@@ -117,7 +189,8 @@
         <!-- Service 6 -->
         <div class="col-md-4 mb-4">
           <div class="card h-100">
-            <img src="pictures/repair-floor.png" class="card-img-top bathroom-tiling1" alt="Repairs & Maintenance">
+            <img src="pictures/repair-floor.png" class="card-img-top bathroom-tiling1" loading="lazy"
+              alt="Repairs & Maintenance">
             <div class="card-body">
               <h5>Repairs & Maintenance</h5>
               <p>Fix broken tiles and restore surfaces to like-new condition.</p>
@@ -164,33 +237,36 @@
     <a href="contact.html" class="btn btn-warning btn-lg mt-3">Get a Quote</a>
   </section>
 
- <!-- 🔹 FOOTER -->
+  <!-- 🔹 FOOTER -->
   <footer class="bg-black text-white text-center py-5">
     <p>&copy; 2026 Perry's Tiling. All rights reserved.</p>
     <p class="mb-0">Phone: 1(876) 817-3377</p>
- <a href="https://api.whatsapp.com/send?phone=18768173377&text=Hi%20Perrys%20Tiling%2C%20I%20need%20a%20quote"
-        target="_blank" class="whatsapp-btn">
-  <div class="hover-panel">
-    <span class="label">Chat with us</span>
-  </div>
-  <img src="pictures/whatsApp2.png" alt="whatsApp" class="whatsApp-logo">
-</a>
-     <div class="flex-social-media-icons">
+    <a href="https://api.whatsapp.com/send?phone=18768173377&text=Hi%20Perrys%20Tiling%2C%20I%20need%20a%20quote"
+      target="_blank" class="whatsapp-btn">
+      <div class="hover-panel">
+        <span class="label">Chat with us</span>
+      </div>
+      <img src="pictures/whatsApp2.png" alt="whatsApp" loading="lazy" class="whatsApp-logo">
+    </a>
+    <div class="flex-social-media-icons">
       <a class="fb-logo" href="https://www.facebook.com/share/1CorVYTHqJ/" target="_blank" rel="noopener noreferrer">
-        <img class="fb-logo" src="pictures/FaceBooK.png" alt="Facebook">
+        <img class="fb-logo" src="pictures/FaceBooK.png" loading="lazy" alt="Facebook">
       </a>
-      <a class="gram-logo" href="https://x.com/WayneMille76515">
-        <img class="x-logo" src="pictures/xx.png" alt="x">
+      <a class="gram-logo" href="https://x.com/WayneMille76515" target="_blank" rel="noopener noreferrer"
+        aria-label="Perry's Tiling on X">
+        <img class="x-logo" src="pictures/xx.png" loading="lazy" alt="x">
       </a>
-      <a class="gram-logo"href="https://www.instagram.com/damianlewis494?igsh=dzc2M3lsbnRhN2Jp" target="_blank" rel="noopener noreferrer">
-        <img class="gram-logo" src="pictures/insta-gram.png" alt="Instagram">
+      <a class="gram-logo" href="https://www.instagram.com/damianlewis494?igsh=dzc2M3lsbnRhN2Jp" target="_blank"
+        rel="noopener noreferrer">
+        <img class="gram-logo" src="pictures/insta-gram.png" loading="lazy" alt="Instagram">
       </a>
-      <a class="indeed-logo" href="">
-        <img class="indeed-logo" src="pictures/indeed.png" alt="Indeed">
+      <a class="indeed-logo" href="javascript:void(0);" aria-label="Indeed page coming soon">
+        <img class="indeed-logo" src="pictures/indeed.png" loading="lazy" alt="Indeed">
       </a>
-  <a class="whatsApp-float " href="https://api.whatsapp.com/send?phone=18768173377&text=Hi%20Perrys%20Tiling%2C%20I%20need%20a%20quote"
-        target="_blank" class="whatsapp-btn">
-        <img class="whatsApp-float" src="pictures/whatsApppp.png" alt="whatsApp">
+      <a class="whatsApp-float"
+        href="https://api.whatsapp.com/send?phone=18768173377&text=Hi%20Perrys%20Tiling%2C%20I%20need%20a%20quote"
+        target="_blank">
+        <img class="whatsApp-float" src="pictures/whatsApppp.png" loading="lazy" alt="whatsApp">
       </a>
     </div>
   </footer>

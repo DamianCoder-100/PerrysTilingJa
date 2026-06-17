@@ -1,0 +1,107 @@
+[
+  {
+    "id": 15,
+    "category": "pool",
+    "title": "Pool Tiling",
+    "src": "pictures/swimming-pool-top-view.jpg",
+    "alt": "Commercial pool tiling project in St. Catherine by Perry's Tiling"
+  },
+  {
+    "id": 14,
+    "category": "pool",
+    "title": "Pool Tiling",
+    "src": "pictures/top-view-outdoor-swimming-pool-resort-hotel-leisure-relax.jpg",
+    "alt": "Swimming pool tile installation in Old Harbour by Perry's Tiling"
+  },
+  {
+    "id": 13,
+    "category": "pool",
+    "title": "Floor Tiling",
+    "src": "pictures/life-style.jpg",
+    "alt": "Large format floor tiling project in Kingston by Perry's Tiling"
+  },
+  {
+    "id": 12,
+    "category": "bathroom",
+    "title": "Bathroom Tiling",
+    "src": "pictures/bathroom_three.jpeg",
+    "alt": "Bathroom floor tile project in Clarendon by Perry's Tiling"
+  },
+  {
+    "id": 11,
+    "category": "bathroom",
+    "title": "Bathroom Tiling",
+    "src": "pictures/bathroom_two.jpeg",
+    "alt": "Complete bathroom tiling in St. Andrew by Perry's Tiling"
+  },
+  {
+    "id": 10,
+    "category": "bathroom",
+    "title": "Bathroom Tiling",
+    "src": "pictures/bathroom_one.jpeg",
+    "alt": "Modern bathroom tile installation in Spanish Town by Perry's Tiling"
+  },
+  {
+    "id": 9,
+    "category": "kitchen",
+    "title": "Kitchen Tiling",
+    "src": "pictures/kitchen6.png",
+    "alt": "Modern kitchen tile renovation in Portmore by Perry's Tiling"
+  },
+  {
+    "id": 8,
+    "category": "kitchen",
+    "title": "Kitchen Tiling",
+    "src": "pictures/kitchen_one.jpeg",
+    "alt": "Kitchen backsplash tiling work in St. Catherine by Perry's Tiling"
+  },
+  {
+    "id": 7,
+    "category": "kitchen",
+    "title": "Kitchen Tiling",
+    "src": "pictures/kitchen_two.jpeg",
+    "alt": "Kitchen backsplash tiling in Spanish Town by Perry's Tiling"
+  },
+  {
+    "id": 6,
+    "category": "stairs",
+    "title": "Entertainment Room Tiling Clarendon",
+    "src": "pictures/red-stairs.png",
+    "alt": "Custom entertainment room floor tiling in Clarendon by Perry's Tiling"
+  },
+  {
+    "id": 5,
+    "category": "stairs",
+    "title": "Stair Tiling",
+    "src": "pictures/stairs_two.jpeg",
+    "alt": "Residential stair tiling in St. Andrew by Perry's Tiling"
+  },
+  {
+    "id": 4,
+    "category": "stairs",
+    "title": "Stair Tiling",
+    "src": "pictures/tile-stairs.png",
+    "alt": "Stair tile installation in Old Harbour by Perry's Tiling"
+  },
+  {
+    "id": 3,
+    "category": "living-room",
+    "title": "Bathroom Tiling",
+    "src": "pictures/floor.jpeg",
+    "alt": "Modern bathroom tile installation in Kingston by Perry's Tiling"
+  },
+  {
+    "id": 2,
+    "category": "living-room",
+    "title": "Livingroom Tiling",
+    "src": "pictures/foyer_three.jpeg",
+    "alt": "Livingroom tile installation in Portmore by Perry's Tiling"
+  },
+  {
+    "id": 1,
+    "category": "living-room",
+    "title": "Bathroom Tiling",
+    "src": "pictures/foyer_one.jpeg",
+    "alt": "Modern bathroom tile installation in Spanish Town by Perry's Tiling"
+  }
+]

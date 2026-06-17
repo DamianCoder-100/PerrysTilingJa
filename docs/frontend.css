@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: 'MyFontLogo';
   src: url('fonts/Bonheur_Royale/BonheurRoyale-Regular.ttf') format('truetype');
@@ -25,6 +26,18 @@
   font-weight: bold;
   font-style: italic;
 }
+
+
+/* =========================
+   LUXURY DESIGN SYSTEM
+========================= */
+
+
+
+
+
+
+
 
 /* Remove Bootstrap's default border and background */
 .navbar-toggler {
@@ -287,9 +300,172 @@ html {
   transform: translateY(-5px);
 }
 
+/* ==========================================================================
+TESTIMONIALS SECTION
+========================================================================== */
 
-/* SERVICE SECTION */
+.testimonial-section {
+    padding: 60px 20px;
+    background: #f8f9fa;
+    text-align: center;
+}
 
+.testimonial-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 280px;
+    overflow: hidden;
+}
+
+/* Each slide */
+/* .testimonial-item {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+} */
+
+.testimonial-item {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+
+    transform: translate3d(0, 0, 0);
+    will-change: transform, opacity;
+}
+
+/* Image */
+.testimonial-image {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+
+/* Name */
+.testimonial-name,
+.testimonial-item h3 {
+    font-size: 1.2rem;
+    color: #222;
+    margin: 2px 0;
+}
+
+/* Role */
+.testimonial-role {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+/* Stars */
+.testimonial-stars {
+    color: #d4af37;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+/* Text */
+.testimonial-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* DOTS */
+.testimonial-dots {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.dot.active {
+    background: #d4af37;
+    transform: scale(1.2);
+}
+
+
+/* =========================
+   FILTER BUTTON WRAPPER
+========================= */
+.text-center.mb-4 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px 0;
+}
+
+/* =========================
+   BASE BUTTON STYLE
+========================= */
+.text-center.mb-4 button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f1f1f1;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    text-transform: capitalize;
+}
+
+/* =========================
+   HOVER STATE
+========================= */
+.text-center.mb-4 button:hover {
+    background-color: #e2e2e2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   ACTIVE STATE
+========================= */
+.text-center.mb-4 button.active {
+    background-color:  #edc900;
+    color: #000000;
+    /* box-shadow: 0 6px 14px rgba(0, 123, 255, 0.35); */
+    transform: translateY(-1px);
+}
+
+/* =========================
+   CLICK FEEL
+========================= */
+.text-center.mb-4 button:active {
+    transform: scale(0.96);
+}
+
+/* =========================
+   FOCUS (ACCESSIBILITY)
+========================= */
+.text-center.mb-4 button:focus {
+    outline: none;
+    /* box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); */
+}
+
+
+/* =========================
+   SERVICE SECTION
+========================= */
 .bathroom-tiling1 {
   width: 100%;
   height: 450px;
@@ -342,31 +518,42 @@ html {
 
 
 
-/* Gallery Section */
-
+/* =========================
+   GALLERY IMAGE
+========================= */
 .gallery-img {
   cursor: pointer;
   transition: transform 0.3s ease;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  position: relative;
-  border-radius: 8px;
   height: 350px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .gallery-img:hover {
   transform: scale(1.05);
 }
 
-
+/* =========================
+   MODAL BODY (FIXED - NO DUPLICATES)
+========================= */
 .modal-body {
   padding: 20px;
+  height: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-
+/* =========================
+   LIGHTBOX IMAGE
+========================= */
 #lightboxImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
   transition: transform 0.3s ease;
 }
 
@@ -374,101 +561,57 @@ html {
   transform: scale(1.02);
 }
 
-
-/* Fix modal width */
+/* =========================
+   MODAL SIZE
+========================= */
 .modal-dialog {
   max-width: 800px;
-  /* you can adjust: 700px, 900px, etc */
-  /* max-height: 400px; */
 }
 
-/* Fix modal height and center content */
-.modal-body {
-  height: 500px;
-  /* fixed height */
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-}
-
-.modal-img {
-  max-width: 100%;
-  max-height: 70vh;
-  object-fit: contain;
-}
-
+/* =========================
+   CAPTION
+========================= */
 .caption {
   margin-top: 12px;
   text-align: center;
   max-width: 100%;
 }
 
-/* Make image fit inside without breaking */
-#lightboxImage {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-
-
-.kitchen-1 {
-  width: 100%;
-  height: 450px;
-  object-fit: cover;
-}
-
-.stairs {
-  width: 100%;
-  height: 450px;
-  object-fit: cover;
-}
-
-.tile-stairs2 {
-  width: 100%;
-  height: 450px;
-  object-fit: cover;
-}
-
-.tile-design {
-  width: 100%;
-  height: 450px;
-  object-fit: cover;
-}
-
-.repair-floor {
-  width: 100%;
-  height: 450px;
-  object-fit: cover;
-}
-
+/* =========================
+   SPECIAL IMAGE CLASSES (SIMPLIFIED)
+========================= */
+.kitchen-1,
+.stairs,
+.tile-stairs2,
+.tile-design,
+.repair-floor,
 .kitchen6 {
   width: 100%;
   height: 450px;
   object-fit: cover;
 }
 
-.bathroom6 {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-}
-
+.bathroom6,
 .floor-tiling {
   width: 100%;
   height: 350px;
   object-fit: cover;
 }
 
+#galleryGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
 
-/* CONTACT SECTION */
+
+/* =========================
+   CONTACT SECTION
+========================= */
+
 .hide-on-contact {
   visibility: hidden;
 }
-
 
 .popup {
   position: fixed;
@@ -496,6 +639,36 @@ html {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 
 }
+
+
+/* =========================PATTERN SECTION================================= */
+.card-hover-effect {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.card-hover-effect:hover {
+  transform: translateY(-4px);
+}
+.project-color{
+  background-color: #1a5d86;
+  color: #fff!important;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card-link .card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.card-link .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
 
 /* Overlay background */
 .popup {
@@ -663,7 +836,7 @@ html {
 }
 
 .btn-dark:hover {
-  background-color: #a8832f;
+  background-color: #976d0c;
 }
 
 /* FOOTER SESSION */
@@ -807,4 +980,17 @@ footer p {
     align-items: center;
 
   }
+}
+
+
+@media (max-width: 992px) {
+    #galleryGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    #galleryGrid {
+        grid-template-columns: 1fr;
+    }
 }
