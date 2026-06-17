@@ -276,7 +276,7 @@ html {
   height: 32px;
   margin-right: 10px;
   /* background: #878787; */
-  color: #edc900;
+  color: #ecc900;
   /* border-radius: 50%; */
   font-size: 24px;
   font-weight: bold;
@@ -508,7 +508,7 @@ TESTIMONIALS SECTION
   position: relative;
   background-image: url("pictures/architectural-blueprints.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center 70%;
   background-repeat: no-repeat;
   color: white;
 }
