@@ -259,6 +259,14 @@ html {
   padding: 80px 0;
 }
 
+@media (max-width: 770px){
+  .why-choose-us{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
 .why-choose-us::before {
   content: "";
   position: absolute;
