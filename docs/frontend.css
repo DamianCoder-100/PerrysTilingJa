@@ -31,14 +31,6 @@
 /* =========================
    LUXURY DESIGN SYSTEM
 ========================= */
-
-
-
-
-
-
-
-
 /* Remove Bootstrap's default border and background */
 .navbar-toggler {
   border: none;
@@ -577,9 +569,9 @@ TESTIMONIALS SECTION
   max-width: 100%;
 }
 
-/* =========================
+/* ========================================
    SPECIAL IMAGE CLASSES (SIMPLIFIED)
-========================= */
+=========================================== */
 .kitchen-1,
 .stairs,
 .tile-stairs2,
@@ -641,7 +633,9 @@ TESTIMONIALS SECTION
 }
 
 
-/* =========================PATTERN SECTION================================= */
+/* ====================================
+            PATTERN SECTION
+======================================== */
 .card-hover-effect {
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
