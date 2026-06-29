@@ -91,7 +91,10 @@
 html {
   scroll-behavior: smooth;
 }
+body{
+  background-color: #f7f7f2;
 
+}
 .section {
   opacity: 0;
   transform: translateY(30px);
@@ -348,14 +351,6 @@ TESTIMONIALS SECTION
     min-height: 280px;
     overflow: hidden;
 }
-
-/* Each slide */
-/* .testimonial-item {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-} */
 
 .testimonial-item {
     position: absolute;

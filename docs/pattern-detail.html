@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pattern Details | Perry's Tiling</title>
 
-  <link rel="icon" href="pictures/perrys-favacon.png" type="image/jpeg">
+  <link rel="icon" href="pictures/perrys-favicon.png" type="image/png">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -68,6 +68,25 @@
       margin-top: 15px;
     }
 
+    .check-icon{
+    color:#e0aa06;   /* Bootstrap warning yellow */
+    font-size:1.2rem;
+    font-weight:bold;
+    margin-right:10px;
+}
+
+.gallery-img{
+    height:280px;
+    object-fit:cover;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.gallery-img:hover{
+    transform:scale(1.03);
+}
+```
+
   </style>
 </head>
 
@@ -100,113 +119,288 @@
     </div>
   </nav>
 
-  <main class="py-5">
+<main class="py-5 bg-light">
 
-    <div class="container">
+  <div class="container">
 
-      <a href="patterns.html"
-         class="btn btn-outline-dark back-btn">
-        ← Back to Patterns
+    <!-- Back Button -->
+    <div class="mb-4">
+      <a href="patterns.html" class="btn btn-outline-dark">
+        ← Back to All Patterns
       </a>
+    </div>
 
-      <div class="card shadow-sm pattern-card">
+    <!-- Pattern Card -->
+    <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
 
-       <!-- PATTERN IMAGES -->
-<div class="row g-4 p-4 pb-0">
+ 
+<!-- Pattern Gallery -->
+<div class="row g-3 p-4">
 
-  <div class="col-lg-6">
+  <div class="col-6">
     <img
       id="patternHero"
       src=""
       alt=""
-      class="pattern-hero w-100">
+      class="img-fluid rounded shadow-sm w-100 gallery-img">
   </div>
 
-  <div class="col-lg-6">
+  <div class="col-6">
     <img
       id="patternExample"
       src=""
       alt=""
-      class="pattern-hero w-100">
+      class="img-fluid rounded shadow-sm w-100 gallery-img">
+  </div>
+
+  <div class="col-6">
+    <img
+      id="patternExample2"
+      src=""
+      alt=""
+      class="img-fluid rounded shadow-sm w-100 gallery-img">
+  </div>
+
+  <div class="col-6">
+    <img
+      id="patternExample3"
+      src=""
+      alt=""
+      class="img-fluid rounded shadow-sm w-100 gallery-img">
   </div>
 
 </div>
 
-        <div class="card-body p-4 p-lg-5">
 
-          <h1
-            id="patternTitle"
-            class="fw-bold mb-4">
+
+      <!-- Content -->
+      <div class="card-body p-4 p-lg-5">
+
+        <div class="text-center mb-5">
+
+          <h1 id="patternTitle" class="display-5 fw-bold">
             Loading...
           </h1>
 
-          <div class="row g-4 mb-4">
+          <p class="text-muted fs-5">
+            Learn more about this tile layout, where it works best, and what to
+            expect during installation.
+          </p>
 
-            <div class="col-md-4">
-              <div class="multiplier-box">
-                Waste Multiplier
-                <div id="patternMultiplier">
+        </div>
+
+        <!-- Stats -->
+        <div class="row g-4 mb-5">
+
+          <div class="col-md-4">
+
+            <div class="card h-100 border-0 bg-warning text-center shadow-sm">
+
+              <div class="card-body">
+
+                <h5 class="fw-bold">
+                  Waste Multiplier
+                </h5>
+
+                <h2 id="patternMultiplier" class="fw-bold mt-3">
                   --
-                </div>
+                </h2>
+
+                <small class="text-dark">
+                  Used when calculating tile quantities.
+                </small>
+
               </div>
+
             </div>
 
-            <div class="col-md-8">
-              <div class="info-box">
-                <h4 class="section-title">
-                  Installation Notes
-                </h4>
+          </div>
 
-                <p id="patternDifficulty"
-                   class="mb-0">
+          <div class="col-md-4">
+
+            <div class="card h-100 border-0 shadow-sm">
+
+              <div class="card-body">
+
+                <h5 class="fw-bold">
+                  Installation Difficulty
+                </h5>
+
+                <p
+                  id="patternDifficulty"
+                  class="mb-0 mt-3">
                 </p>
+
               </div>
+
             </div>
 
           </div>
 
-          <div class="row g-4">
+          <div class="col-md-4">
 
-            <div class="col-lg-6">
-              <div class="info-box">
+            <div class="card h-100 border-0 shadow-sm">
 
-                <h4 class="section-title">
-                  Layout Description
-                </h4>
+              <div class="card-body">
 
-                <p id="patternDesc"></p>
+                <h5 class="fw-bold">
+                  Best For
+                </h5>
 
-              </div>
-            </div>
-
-            <div class="col-lg-6">
-              <div class="info-box">
-
-                <h4 class="section-title">
-                  Best Used For
-                </h4>
-
-                <p id="patternUsage"></p>
+                <p
+                  id="patternUsage"
+                  class="mb-0 mt-3">
+                </p>
 
               </div>
+
             </div>
 
           </div>
 
-          <div class="cta-box">
+        </div>
 
-            <h4>
-              Ready to use this pattern?
-            </h4>
+        <!-- Description -->
+        <div class="card border-0 bg-light mb-5">
 
-            <p>
-              Perry's Tiling can help you calculate tile quantities,
-              waste factors, grout requirements, and installation costs.
+          <div class="card-body">
+
+            <h3 class="fw-bold mb-3">
+              About This Pattern
+            </h3>
+
+            <p
+              id="patternDesc"
+              class="lead mb-0">
             </p>
 
-            <a href="contact.html"
-               class="btn btn-warning btn-lg">
-              Request an Estimate
+          </div>
+
+        </div>
+
+        <!-- Advantages -->
+        <div class="row g-4 mb-5">
+
+          <div class="col-lg-6">
+
+            <div class="card h-100 border-0 shadow-sm">
+
+              <div class="card-body">
+
+                <h4 class="fw-bold mb-3">
+                  Advantages
+                </h4>
+
+                <ul class="list-group list-group-flush">
+
+         <ul class="list-group list-group-flush">
+
+  <li class="list-group-item">
+    <span class="check-icon">✓</span>
+    Professional appearance
+  </li>
+
+  <li class="list-group-item">
+    <span class="check-icon">✓</span>
+    Durable and long-lasting
+  </li>
+
+  <li class="list-group-item">
+    <span class="check-icon">✓</span>
+    Increases property value
+  </li>
+
+  <li class="list-group-item">
+    <span class="check-icon">✓</span>
+    Suitable for residential and commercial spaces
+  </li>
+
+</ul>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-6">
+
+            <div class="card h-100 border-0 shadow-sm">
+
+              <div class="card-body">
+
+                <h4 class="fw-bold mb-3">
+                  Things to Consider
+                </h4>
+
+                <ul class="list-group list-group-flush">
+
+                  <li class="list-group-item">
+                    • Requires careful planning.
+                  </li>
+
+                  <li class="list-group-item">
+                    • Some layouts create more tile waste.
+                  </li>
+
+                  <li class="list-group-item">
+                    • Professional installation is recommended.
+                  </li>
+
+                  <li class="list-group-item">
+                    • Choosing the right grout color enhances the final look.
+                  </li>
+
+                </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Pro Tip -->
+        <div class="alert alert-warning shadow-sm mb-5">
+
+          <h5 class="fw-bold">
+            💡 Pro Tip
+          </h5>
+
+          <p class="mb-0">
+            Large-format tiles and properly aligned grout joints can dramatically
+            improve the appearance of this layout. Perry's Tiling can recommend
+            the ideal tile size and grout colour for your project.
+          </p>
+
+        </div>
+
+        <!-- CTA -->
+        <div class="bg-dark text-white rounded-4 p-5 text-center">
+
+          <h2 class="fw-bold mb-3">
+            Ready to Transform Your Space?
+          </h2>
+
+          <p class="lead mb-4">
+            Whether you're renovating a bathroom, kitchen, patio, or commercial
+            property, Perry's Tiling provides professional tile installation with
+            expert craftsmanship and attention to detail.
+          </p>
+
+          <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+
+            <a
+              href="contact.html"
+              class="btn btn-warning btn-lg">
+              Get a Free Quote
+            </a>
+
+            <a
+              href="patterns.html"
+              class="btn btn-outline-light btn-lg">
+              Browse More Patterns
             </a>
 
           </div>
@@ -217,7 +411,10 @@
 
     </div>
 
-  </main>
+  </div>
+
+</main>
+
 
  
   <!-- 🔹 FOOTER -->
