@@ -1,20 +1,26 @@
+// MAIN JS FOR PERRY'S WEBSITE CONTACT FORM & INTERFACE
+
 const logo = document.querySelector('.logo-image');
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    logo.classList.add('shrink');
-  } else {
-    logo.classList.remove('shrink');
-  }
-});
+// ===== LOGO SHRINK ON SCROLL =====
+if (logo) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      logo.classList.add('shrink');
+    } else {
+      logo.classList.remove('shrink');
+    }
+  });
+}
 
-// MAIN JS FOR PERRY'S WEBSITE
-// const API_URL =
-//   window.location.hostname === "localhost"
-//     ? "http://localhost:3000"
-//     : "https://your-backend-domain.com";
+// ===== DYNAMIC API ENDPOINT =====
+const API_URL = 
+  window.location.hostname === "localhost" || 
+  window.location.hostname === "127.0.0.1" || 
+  window.location.hostname.startsWith("192.168.")
+    ? "http://127.0.0.1:3000" // 👈 Changed from localhost to 127.0.0.1
+    : "https://your-backend-domain.com";
 
-const API_URL = "http://localhost:3000";
 // ===== ELEMENTS =====
 const form = document.getElementById('contactForm');
 const nameInput = document.getElementById('name');
@@ -39,9 +45,11 @@ function openLightbox(img) {
 
 // ===== VALIDATE FUNCTIONS =====
 function validate(input) {
-  if (!input.checkValidity()) {
-    input.classList.add('is-invalid');
-    input.classList.remove('is-valid');
+  if (!input || !input.checkValidity()) {
+    if (input) {
+      input.classList.add('is-invalid');
+      input.classList.remove('is-valid');
+    }
     return false;
   } else {
     input.classList.remove('is-invalid');
@@ -51,6 +59,7 @@ function validate(input) {
 }
 
 function validatePhone(input) {
+  if (!input) return false;
   const phonePattern = /^[0-9+\s()-]{7,15}$/;
   if (!phonePattern.test(input.value.trim())) {
     input.classList.add('is-invalid');
@@ -64,9 +73,11 @@ function validatePhone(input) {
 }
 
 function validateSelect(select) {
-  if (!select.value) {
-    select.classList.add('is-invalid');
-    select.classList.remove('is-valid');
+  if (!select || !select.value) {
+    if (select) {
+      select.classList.add('is-invalid');
+      select.classList.remove('is-valid');
+    }
     return false;
   } else {
     select.classList.remove('is-invalid');
@@ -90,10 +101,9 @@ if (form) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    // 1. Clear previous validation state before running checks
     clearValidation();
     
-    // 2. Run all validation
+    // Validate all fields
     const isNameValid = validate(nameInput);
     const isEmailValid = validate(email);
     const isPhoneValid = validatePhone(phone);
@@ -107,8 +117,11 @@ if (form) {
 
     const formData = Object.fromEntries(new FormData(form));
     const submitBtn = form.querySelector('button[type="submit"]');
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
+    
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+    }
 
     try {
       const res = await fetch(`${API_URL}/contact`, {
@@ -124,14 +137,22 @@ if (form) {
         form.reset();
         clearValidation();
       } else {
-        alert(data.message || 'Something went wrong. Try again.');
+        // Handle express-validator server array formatting cleanly 
+        if (data.errors && Array.isArray(data.errors)) {
+          const errorMessages = data.errors.map(err => err.msg).join('\n');
+          alert(`Validation Error:\n${errorMessages}`);
+        } else {
+          alert(data.message || 'Something went wrong. Try again.');
+        }
       }
     } catch (err) {
       alert('Network error. Please try again.');
       console.error(err);
     } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Send Message';
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
     }
   });
 }

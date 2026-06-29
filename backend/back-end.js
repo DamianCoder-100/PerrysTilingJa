@@ -8,10 +8,16 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const { body, validationResult } = require('express-validator');
 const nodemailer = require('nodemailer');
-const fs = require('fs');
-const path = require('path');
 
 const app = express();
+
+// Global error handlers to capture silent crashes
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('❌ Unhandled Rejection at:', promise, 'reason:', reason);
+});
+process.on('uncaughtException', (error) => {
+  console.error('❌ Uncaught Exception thrown:', error);
+});
 
 // ======================
 // TRUST PROXY (for deployment)
@@ -41,31 +47,51 @@ if (
 }
 
 // ======================
-// MIDDLEWARE
+// 1. CORS CONFIGURATION
 // ======================
-app.use(express.json({ limit: '10kb' }));
-app.use(express.urlencoded({ extended: true }));
-
-app.use(helmet());
+const allowedOrigins = [
+  'http://localhost:5500',
+  'http://127.0.0.1:5500',
+  'http://127.0.0.1:5501',
+  'http://localhost:5501',
+  'http://127.0.0.1:5502',
+  'http://localhost:5502',
+  'https://damiancoder-100.github.io'
+];
 
 app.use(
   cors({
-    origin: [
-       'http://localhost:5500',
-      'http://127.0.0.1:5500',
-      'http://127.0.0.1:5501',
-      'http://localhost:5501',
-      'https://damiancoder-100.github.io'
-    ]
+    origin: function (origin, callback) {
+      // Log incoming requests to debug live connection problems
+      console.log(`🔌 Connection attempt from Origin: ${origin || 'Direct/No-Origin'}`);
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        console.warn(`⚠️ Blocked by CORS policy: ${origin}`);
+        const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+    optionsSuccessStatus: 200
   })
 );
+
+// ======================
+// 2. SECURITY & PARSING MIDDLEWARE
+// ======================
+app.use(helmet());
+app.use(express.json({ limit: '10kb' }));
+app.use(express.urlencoded({ extended: true }));
 
 // ======================
 // RATE LIMITER
 // ======================
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 5,
+  max: 10, // Increased slightly for development testing
   message: {
     success: false,
     message: 'Too many requests. Try again later.'
@@ -73,7 +99,7 @@ const limiter = rateLimit({
 });
 
 // ======================
-// SMTP TRANSPORTER (OPTIMIZED)
+// SMTP TRANSPORTER
 // ======================
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
@@ -88,7 +114,6 @@ const transporter = nodemailer.createTransport({
   socketTimeout: 10000
 });
 
-// SMTP connection check
 transporter.verify((error) => {
   if (error) {
     console.error('❌ SMTP connection failed:', error);
@@ -136,9 +161,6 @@ app.post('/contact', limiter, contactValidation, async (req, res) => {
   const { name, email, phone, service, message } = req.body;
 
   try {
-    // ======================
-    // EMAIL TO OWNER
-    // ======================
     await transporter.sendMail({
       from: `"Perry's Tiling" <${emailUser}>`,
       to: receiverEmail,
@@ -155,23 +177,20 @@ app.post('/contact', limiter, contactValidation, async (req, res) => {
       `
     });
 
-    // ======================
-    // CONFIRMATION EMAIL TO USER
-    // ======================
     await transporter.sendMail({
       from: `"Perry's Tiling" <${emailUser}>`,
       to: email,
       subject: "Thanks for contacting Perry's Tiling!",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-       <div style="padding: 0 0 15px 5px; margin-bottom: 25px;">
-  <img 
-    src="https://damiancoder-100.github.io/PerrysTilingJa/pictures/perry-logo2026.png"
-    width="160"
-    alt="Perry's Tiling Logo"
-    style="display: block; margin: 0;"
-  >
-</div>
+          <div style="padding: 0 0 15px 5px; margin-bottom: 25px;">
+            <img 
+              src="https://damiancoder-100.github.io/PerrysTilingJa/pictures/perry-logo2026.png"
+              width="160"
+              alt="Perry's Tiling Logo"
+              style="display: block; margin: 0;"
+            >
+          </div>
           <p>Hi ${name},</p>
           <p>Thanks for reaching out about <strong>${service}</strong>.</p>
           <p>We will get back to you within 24 hours.</p>
@@ -196,16 +215,14 @@ app.post('/contact', limiter, contactValidation, async (req, res) => {
   }
 });
 
-
+// Express 5 Safe Catch-all 404 Handler
 app.use((req, res) => {
   res.status(404).json({ success: false, message: 'Route not found' });
 });
 
 // ======================
-// START SERVER
+// START SERVER (Explicit IPv4 loopback binding)
 // ======================
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+app.listen(PORT, '127.0.0.1', () => {
+  console.log(`🚀 Server listening at http://127.0.0.1:${PORT}`);
 });
-
-
