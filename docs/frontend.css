@@ -803,7 +803,7 @@ TESTIMONIALS SECTION
 }
 
 /* SOCIAL MEDIA ICONS */
-.fb-logo {
+/* .fb-logo {
   width: 70px;
   margin-top: 10px;
 }
@@ -822,11 +822,20 @@ TESTIMONIALS SECTION
 .indeed-logo {
   width: 70px;
   margin-top: 10px;
+} */
+
+.fb-logo,
+.x-logo,
+.gram-logo,
+.indeed-logo,
+.whatsApp-float {
+    width: auto;
+    height: 40px;
 }
 
 .whatsApp-float {
-  width: 70px;
-  margin-top: 10px;
+     width: auto;
+    height: 40px;
   display: none;
 }
 
