@@ -1022,4 +1022,13 @@ footer p {
     #galleryGrid {
         grid-template-columns: 1fr;
     }
+
+    
+  }
+
+
+.logo-facebook-yellow {
+  /* Targets the blue channels and shifts them directly into a golden-yellow hue */
+  filter: hue-rotate(145deg) saturate(2.5) brightness(1.1);
 }
+
