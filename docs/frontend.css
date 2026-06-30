@@ -824,6 +824,13 @@ TESTIMONIALS SECTION
   margin-top: 10px;
 } */
 
+
+
+.top-corners {
+    border-radius: 5px;
+   
+}
+
 .fb-logo,
 .x-logo,
 .gram-logo,
