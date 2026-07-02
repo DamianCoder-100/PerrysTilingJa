@@ -58,9 +58,30 @@ function validate(input) {
   }
 }
 
+function formatPhoneInput(input) {
+  if (!input) return;
+
+  const digits = input.value.replace(/\D/g, '').slice(0, 10);
+  let formatted = '';
+
+  if (digits.length > 0) {
+    formatted = `(${digits.slice(0, 3)}`;
+  }
+
+  if (digits.length > 3) {
+    formatted += `) ${digits.slice(3, 6)}`;
+  }
+
+  if (digits.length > 6) {
+    formatted += `-${digits.slice(6, 10)}`;
+  }
+
+  input.value = formatted;
+}
+
 function validatePhone(input) {
   if (!input) return false;
-  const phonePattern = /^[0-9+\s()-]{7,15}$/;
+  const phonePattern = /^\(\d{3}\) \d{3}-\d{4}$/;
   if (!phonePattern.test(input.value.trim())) {
     input.classList.add('is-invalid');
     input.classList.remove('is-valid');
@@ -92,7 +113,9 @@ if (nameInput && email && message && phone && service) {
     input.addEventListener('input', () => validate(input));
   });
 
-  phone.addEventListener('input', () => validatePhone(phone));
+  phone.addEventListener('input', () => {
+    formatPhoneInput(phone);
+  });
   service.addEventListener('change', () => validateSelect(service));
 }
 
